@@ -9,5 +9,4 @@ public class X6NotificationApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(X6NotificationApplication.class, args);
 	}
-
 }
