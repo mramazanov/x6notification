@@ -1,14 +1,17 @@
 package com.javajabka.x6_notification.utils;
 
+import lombok.experimental.UtilityClass;
+
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
+@UtilityClass
 public class AsciiArtUtil {
 
-    public static String getAsciiArtMessage() {
+    public String getAsciiArtMessage() {
         int width = 200;
         int height = 30;
 
@@ -22,6 +25,7 @@ public class AsciiArtUtil {
 
         StringBuilder asciiWord = new StringBuilder().append("\n");
         StringBuilder asciiWordTemp = new StringBuilder();
+
         for (int y = 0; y < height; y++) {
             asciiWordTemp.setLength(0);
 

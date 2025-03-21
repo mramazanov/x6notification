@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class NotificationConsumer {
     @RabbitListener(queues = "${app.rabbitmq.queue}")
     public void receive(OrderResponse orderResponse) {
-        log.info("{}", AsciiArtUtil.getAsciiArtMessage());
-        log.info("Received message: {}", orderResponse);
+        log.info(AsciiArtUtil.getAsciiArtMessage());
+        log.info("Received message: {}", () -> orderResponse);
     }
 }
