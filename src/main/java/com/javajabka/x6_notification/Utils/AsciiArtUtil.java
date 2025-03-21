@@ -1,16 +1,14 @@
 package com.javajabka.x6_notification.Utils;
 
-import org.springframework.stereotype.Component;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
-@Component
 public class AsciiArtUtil {
 
-    public void getAsciiArtMessage() {
+    public static String getAsciiArtMessage() {
         int width = 200;
         int height = 30;
 
@@ -22,17 +20,21 @@ public class AsciiArtUtil {
         graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         graphics.drawString("Message received", 10, 20);
 
-        StringBuilder message = new StringBuilder();
+        StringBuilder asciiWord = new StringBuilder().append("\n");
+        StringBuilder asciiWordTemp = new StringBuilder();
         for (int y = 0; y < height; y++) {
-            StringBuilder sb = new StringBuilder();
+            asciiWordTemp.setLength(0);
+
             for (int x = 0; x < width; x++) {
-                sb.append(image.getRGB(x, y) == -16777216 ? " " : "*");
+                asciiWordTemp.append(image.getRGB(x, y) == -16777216 ? " " : "*");
             }
 
-            if (sb.toString().trim().isEmpty()) {
+            if (asciiWordTemp.toString().trim().isEmpty()) {
                 continue;
             }
-            System.out.println(sb);
+            asciiWord.append(asciiWordTemp).append("\n");
         }
+
+        return asciiWord.toString();
     }
 }

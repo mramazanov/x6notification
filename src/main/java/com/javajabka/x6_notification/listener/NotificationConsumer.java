@@ -9,16 +9,9 @@ import org.springframework.stereotype.Component;
 @Log4j2
 @Component
 public class NotificationConsumer {
-
-    private AsciiArtUtil asciiArtUtil;
-
-    public NotificationConsumer(AsciiArtUtil asciiArtUtil) {
-        this.asciiArtUtil = asciiArtUtil;
-    }
-
     @RabbitListener(queues = "${app.rabbitmq.queue}")
     public void receive(OrderResponse orderResponse) {
-        asciiArtUtil.getAsciiArtMessage();
+        log.info(AsciiArtUtil.getAsciiArtMessage());
         log.info("Received message: " + orderResponse);
     }
 }
