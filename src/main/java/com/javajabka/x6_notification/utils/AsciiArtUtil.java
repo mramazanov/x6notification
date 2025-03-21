@@ -1,4 +1,4 @@
-package com.javajabka.x6_notification.Utils;
+package com.javajabka.x6_notification.utils;
 
 import java.awt.Font;
 import java.awt.Graphics;
